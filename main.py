@@ -14,12 +14,11 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # allow React app
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,  # ← CHANGE TO FALSE
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Load model
 model = tf.keras.models.load_model(MODEL_PATH)
 
